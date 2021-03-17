@@ -19,6 +19,9 @@ var confirmSpCharacter;
 var confirmUppercase;
 var confirmLowercase;
 
+// Selection made outside statements, so they can be concatenated 
+var selection;
+
 //Prompt to confirm how long user would like the password:
 function generatePassword() {
   var enterLength = (prompt("How many characters would you like your password to contain? Choose a number between 8 and 128."));
@@ -35,7 +38,16 @@ function generatePassword() {
     confirmLowercase = confirm("Do you want to include lowercase characters?");
   };
 
+  // If 4 negative options
+  if (!confirmSpCharacter && !confirmNumber && !confirmUppercase && !confirmLowercase) {
+      selection = alert("You must select at least one of the criteria!");
+  }
 
+  //Else if for 4 positive selections
+  else if (confirmNumber && confirmSpCharacter && confirmUppercase && confirmLowercase) {
+    selection = number.concat(spcharacter, alphaUpper, alphaLower);
+  }
+  // Else if for 3 positive selections
   
 
 }
