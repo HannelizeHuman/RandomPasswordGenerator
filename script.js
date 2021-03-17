@@ -63,7 +63,26 @@ function generatePassword() {
   }
 
   //Else if for 2 postive selections
-  
+  else if (confirmNumber && confirmSpCharacter) {
+    selection = number.concat(spcharacter);
+  }
+  else if (confirmNumber && confirmLowercase) {
+    selection = number.concat(alphaLower);
+  }
+  else if (confirmNumber && confirmUppercase) {
+    selection = number.concat(alphaUpper);
+  }
+  else if (confirmSpCharacter && confirmUppercase) {
+    selection = spcharacter.concat(alphaUpper);
+  }
+  else if (confirmSpCharacter && confirmLowercase) {
+    selection = spcharacter.concat(alphaLower);
+  }
+  else if (confirmLowercase && confirmUppercase) {
+    selection = alphaLower.concat(alphaUpper);
+  }
+
+  //Else if for 1 positive selection
 
 }
 
