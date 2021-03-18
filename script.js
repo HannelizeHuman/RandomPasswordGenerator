@@ -30,7 +30,7 @@ generateBtn.addEventListener("click", function () {
   document.getElementById("password").placeholder = ps;
 });
 
-//Prompt to confirm how long user would like the password:
+// Prompt to confirm how long user would like the password:
 function generatePassword() {
   enterLength = (prompt("How many characters would you like your password to contain? Choose a number between 8 and 128."));
   if (!enterLength) {
@@ -39,7 +39,7 @@ function generatePassword() {
       enterLength = parseInt(prompt("You must choose an amount between 8 and 128"));
 
   } else {
-  // Continues once user entered a valid input
+// Continues once user entered a valid input
     confirmNumber = confirm("Do you want to include numbers?");
     confirmSpCharacter = confirm("Do you want to include special characters?");
     confirmUppercase = confirm("Do you want to include uppercase characters?");
@@ -51,7 +51,7 @@ function generatePassword() {
       selection = alert("You must select at least one of the criteria!");
   }
 
-//Else if for 4 positive selections
+// Else if for 4 positive selections
   else if (confirmNumber && confirmSpCharacter && confirmUppercase && confirmLowercase) {
     selection = number.concat(spcharacter, alphaUpper, alphaLower);
   }
@@ -70,7 +70,7 @@ function generatePassword() {
     selection = spcharacter.concat(alphaUpper, alphaLower);
   }
 
-//Else if for 2 postive selections
+// Else if for 2 postive selections
   else if (confirmNumber && confirmSpCharacter) {
     selection = number.concat(spcharacter);
   }
@@ -90,7 +90,7 @@ function generatePassword() {
     selection = alphaLower.concat(alphaUpper);
   }
 
-//Else if for 1 positive selection
+// Else if for 1 positive selection
   else if (confirmNumber) {
     selection = number;
   }
@@ -104,23 +104,22 @@ function generatePassword() {
     selection = alphaUpper;
   };
 
-//Password variable is an array placeholder for user, generated amount of lenth
+// Password variable is an array placeholder for user, generated amount of lenth
   var password = [];
 
-//Random variable selection:
+// Random variable selection:
   for (var i = 0; i < enterLength; i++) {
-    
     var choices = selection[Math.floor(Math.random()*selection.length)];
     password.push(choices);
   }
 
-//Converts array into string
+// Converts array into string
   var ps = password.join("");
   UserInput(ps);
   return ps;
 }
 
-//Puts password into text box
+// Puts password into text box
   function UserInput(ps) {
     document.getElementById("password").textContent = ps;
 }
@@ -134,7 +133,7 @@ function writePassword() {
   passwordText.value = password;
 }
 
-//Copy password
+// Copy password
 
 function copy() {
   var copyText = document.querySelector("#password");
