@@ -22,33 +22,41 @@ var confirmLowercase;
 // Selection made outside statements, so they can be concatenated 
 var selection;
 
+// Assignment Code
+var generateBtn = document.querySelector("#generate");
+
+generateBtn.addEventListener("click", function () {
+  ps = generatePassword ();
+  document.getElementById("password").placeholder = ps;
+});
+
 //Prompt to confirm how long user would like the password:
 function generatePassword() {
-  var enterLength = (prompt("How many characters would you like your password to contain? Choose a number between 8 and 128."));
+  enterLength = (prompt("How many characters would you like your password to contain? Choose a number between 8 and 128."));
   if (!enterLength) {
       alert("Please enter a value");
-  } else if (enterLength <= 8 || enterLength >= 128) {
+  } else if (enterLength < 8 || enterLength > 128) {
       enterLength = parseInt(prompt("You must choose an amount between 8 and 128"));
 
   } else {
-    // Continues once user entered a valid input
+  // Continues once user entered a valid input
     confirmNumber = confirm("Do you want to include numbers?");
     confirmSpCharacter = confirm("Do you want to include special characters?");
     confirmUppercase = confirm("Do you want to include uppercase characters?");
     confirmLowercase = confirm("Do you want to include lowercase characters?");
   };
 
-  // If 4 negative options
+// If 4 negative options
   if (!confirmSpCharacter && !confirmNumber && !confirmUppercase && !confirmLowercase) {
       selection = alert("You must select at least one of the criteria!");
   }
 
-  //Else if for 4 positive selections
+//Else if for 4 positive selections
   else if (confirmNumber && confirmSpCharacter && confirmUppercase && confirmLowercase) {
     selection = number.concat(spcharacter, alphaUpper, alphaLower);
   }
 
-  // Else if for 3 positive selections
+// Else if for 3 positive selections
   else if (confirmNumber && confirmSpCharacter && confirmUppercase) {
     selection = number.concat(spcharacter, alphaUpper);
   }
@@ -62,7 +70,7 @@ function generatePassword() {
     selection = spcharacter.concat(alphaUpper, alphaLower);
   }
 
-  //Else if for 2 postive selections
+//Else if for 2 postive selections
   else if (confirmNumber && confirmSpCharacter) {
     selection = number.concat(spcharacter);
   }
@@ -82,13 +90,41 @@ function generatePassword() {
     selection = alphaLower.concat(alphaUpper);
   }
 
-  //Else if for 1 positive selection
+//Else if for 1 positive selection
+  else if (confirmNumber) {
+    selection = number;
+  }
+  else if (confirmSpCharacter) {
+    selection = spcharacter;
+  }
+  else if (confirmLowercase) {
+    selection = alphaLower;
+  }
+  else if (confirmUppercase) {
+    selection = alphaUpper;
+  };
 
+//Password variable is an array placeholder for user, generated amount of lenth
+  var password = [];
+
+//Random variable selection:
+  for (var i = 0; i < enterLength; i++) {
+    
+    var choices = selection[Math.floor(Math.random()*selection.length)];
+    password.push(choices);
+  }
+
+//Converts array into string
+  var ps = password.join("");
+  UserInput(ps);
+  return ps;
 }
 
+//Puts password into text box
+  function UserInput(ps) {
+    document.getElementById("password").textContent = ps;
+}
 
-// Assignment Code
-var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
@@ -96,8 +132,68 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
 }
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+//Copy password
+
+function copy() {
+  var copyText = document.querySelector("#password");
+  copyText.select();
+  document.execCommand("copy")
+}
+
+document.querySelector("#password").addEventListener("click", copy);
+
+
+function copyPassword () {
+  document.getElementById("password").select();
+  document.execCommand("copy");
+  alert("Password copied");
+}
+
+
+
+
+
+
+
+// Different copy to clipboard variations that i tried out, and had no luck with.
+
+
+// var copy = document.querySelector("#copy");
+// copy.addEventListener("click", function () {
+//   copyPassword();
+// });
+
+// function copyPassword () {
+//   document.getElementById("password").select();
+//   document.execCommand("copy");
+//   alert("Password copied");
+// }
+
+// function copy_text(element) {
+//   //Before we copy, we are going to select the text.
+//   var text = document.getElementById(password);
+//   var selection = window.getSelection();
+//   var range = document.createRange();
+//   range.selectNodeContents(text);
+//   selection.removeAllRanges();
+//   selection.addRange(range);
+//   //add to clipboard.
+//   document.execCommand('copy');
+// }
+
+// const copyToClipboard = str => {
+//   const el = document.createElement('textarea');
+//   el.value = str;
+//   document.body.appendChild(el);
+//   el.select();
+//   document.execCommand('copy');
+//   document.body.removeChild(el);
+// };
+
+
+
+
+
+
