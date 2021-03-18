@@ -16,7 +16,7 @@ The password generator will present the user with a password, which they then ca
 ## Table of Contents
 
 - [Installation](#installation)
-- [Usage](#usage)
+- [Features](#features)
 
 
 
@@ -24,12 +24,21 @@ The password generator will present the user with a password, which they then ca
 This project has been deployed to GitHub Pages. To get this project up and running, you can follow the deployment link. Or, download the sources files to use this as a template.
 
 - 
-- 
+- GitHub Repo (https://github.com/HannelizeHuman/RandomPasswordGenerator)
 
-## Usage
-Provide instructions and examples for use. Include screenshots as needed.
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
-    ```md
-    ![alt text](assets/images/screenshot.png)
-    ```
+## Features
+
+* One HTML Pages
+    -  Index.html
+    - Contains basic user input items and buttons with divs and ids
+* One CSS Page
+    - Styles.css
+    - Contains centering and styling for html user input features
+    - Contains media queries
+* One Javascript Page Contains: 
+    - Variables, including arrays and value placeholders 
+    - Event listeners 
+    - If/else if statements 
+    - function outside of first event listener
+
 
