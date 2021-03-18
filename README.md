@@ -23,7 +23,7 @@ The password generator will present the user with a password, which they then ca
 ## Installation
 This project has been deployed to GitHub Pages. To get this project up and running, you can follow the deployment link. Or, download the sources files to use this as a template.
 
-- 
+- Live web page (https://hannelizehuman.github.io/RandomPasswordGenerator/)
 - GitHub Repo (https://github.com/HannelizeHuman/RandomPasswordGenerator)
 
 ## Features
